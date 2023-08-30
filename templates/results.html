@@ -1,0 +1,44 @@
+{% extends 'template.html' %}
+
+{% block content %}
+<section class="pt-5">
+    <h3 class="text-center">Locations obtained from scrapping the website shoppersstop</h3>
+    <a href="/validate"><center><button class="btn btn-success text-center" >validate the below locations</button></center></a>
+    <div class="container">
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID number</th>
+                        <th scope="col">Latitude</th>
+                        <th scope="col">Longitude</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Last updated at</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for location in locations %}
+                    <tr>
+                        <td>{{ location.id }}</td>
+                        <td>{{ location.latitude }}</td>
+                        <td>{{ location.longitude }}</td>
+                        <td>{{ location.name }}</td>
+                        <td>{{ location.last_updated }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            {% if location.validate != "not yet validated" and location.validate != "Invalid location" %}
+                            <p style="color: green;">{{ location.validate }}</p>
+                            {% else %}
+                            <p style="color: red;">{{ location.validate }}</p>
+                            {% endif %}
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

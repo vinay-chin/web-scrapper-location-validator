@@ -1,0 +1,56 @@
+{% extends 'template.html' %}
+
+{% block additional_css %}
+<style>
+    .home {
+        color: green;
+    }
+
+    .hero {
+        height: 350px;
+        background-color: #f8f9fa;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero h4 {
+        margin-bottom: 1rem;
+    }
+
+    .hero-btn {
+        margin-top: 1rem;
+    }
+
+    .footer {
+        background-color: #343a40;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="pt-5">
+    <div class="hero">
+        <h1 class="text-center">Welcome to my website, Location Validator</h1>
+        <p class="text-center">validate the locations of your website</p>
+        <h4>Last Updated at: <span>{{ last_updated }}</span></h4>
+        <a href="/scrap" class="btn btn-primary hero-btn">Update Scrapper locations</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block footer %}
+<footer class="footer">
+    <div class="container">
+      <h5>Contact details</h5>
+        <p class="text-info">VINAY CHINDUKURI</p>
+        <p class="text-info">Contact email: chvinay8288@gmail.com</p>
+        <p class="text-info">Full stack web developer</p>
+    </div>
+    <div class="container px-4 px-lg-5">Copyright &copy; Location Validator </div>
+</footer>
+{% endblock %}
